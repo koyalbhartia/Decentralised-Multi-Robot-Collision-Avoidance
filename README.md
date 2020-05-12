@@ -32,7 +32,7 @@ source devel/setup.bash
 Large environemnt
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/warehouse.world
-mpiexec -np 44 python ppo_warehouse.py
+mpiexec -np 40 python ppo_warehouse.py
 ```
 Small Environment
 ```
@@ -44,7 +44,7 @@ mpiexec -np 44 python ppo_scene.py
 ## Test
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/warehouse.world
-mpiexec -np 45 python warehouse_test.py
+mpiexec -np 40 python warehouse_test.py
 ```
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/scene1_stage2.world
