@@ -1,0 +1,153 @@
+show_clock 0
+show_clock_interval 10000
+resolution 0.02
+threads 4
+speedup 20
+
+define sicklaser ranger
+(
+  sensor(
+    pose [ 0 0 0.1 0 ]
+    fov 180
+    range [ 0.0 6.0 ]
+    samples 512
+  )
+  color "random"
+  block( 
+    points 4
+    point[0] [0 0]
+    point[1] [0 1]
+    point[2] [1 1]
+    point[3] [1 0]
+    z [0 0.21]
+  )
+)
+
+
+define floorplan model
+(
+  color "gray30"
+  boundary 1
+
+  gui_nose 0
+  gui_grid 0
+  gui_move 1
+  gui_outline 0
+  gripper_return 0
+  fiducial_return 0
+  ranger_return 1
+  obstacle_return 1
+)
+
+floorplan
+(
+  name "blank"
+  size [100.0 60.0 2.0]
+  pose [5.0  5.0 0.0 0.0]
+  bitmap "warehouse.png"
+)
+
+
+
+window
+(
+  size [2000.0 1200.0]
+  
+# Camera options 
+  scale 60          
+  center [0  0]
+  rotate [ 0.000  0.000 ]
+
+
+# GUI options
+  show_data 1
+  show_flags 1
+  show_blocks 1
+  show_clock 1
+  show_footprints 0
+  show_grid 1
+  show_trailarrows 0
+  show_trailrise 0
+  show_trailfast 0
+  show_occupancy 0
+
+)
+
+
+
+
+define agent position
+(
+  # actual size
+  size [0.44 0.38 0.22] # sizes from MobileRobots' web site
+
+  # the pioneer's center of rotation is offset from its center of area
+  origin [0 0 0 0]
+
+  # draw a nose on the robot so we can see which way it points
+  gui_nose 1
+
+  color "random"
+  drive "diff"		 	# Differential steering model.
+  obstacle_return 1           	# Can hit things.
+  ranger_return 0.5            	# reflects sonar beams
+  blob_return 1               	# Seen by blobfinders  
+  fiducial_return 1           	# Seen as "1" fiducial finders
+  sicklaser(
+	pose [ 0 0 0 0 ]
+  )
+  
+  # [ xmin xmax ymin ymax zmin zmax amin amax ]				
+  # velocity_bounds [-0.5 0.5 0 0 0 0 -90.0 90.0 ]					
+  # acceleration_bounds [-0.5 0.5 0 0 0 0 -90 90.0 ]
+  )
+
+
+
+
+
+
+
+agent( pose [-36 20 0.0 0.0])
+agent( pose [-36 18 0.0 0.0])
+agent( pose [-36 16 0.0 0.0])
+agent( pose [-36 14 0.0 0.0])
+agent( pose [-36 12 0.0 0.0])
+agent( pose [-36 10 0.0 0.0])
+agent( pose [-36 8 0.0 0.0])
+agent( pose [-36 6 0.0 0.0])
+agent( pose [-36 4 0.0 0.0])
+agent( pose [-36 2 0.0 0.0])
+agent( pose [-36 0 0.0 0.0])
+
+agent( pose [46 -2 0.0 180])
+agent( pose [46 -4 0.0 180])
+agent( pose [46 -6 0.0 180])
+agent( pose [46 -8 0.0 180])
+agent( pose [46 -10 0.0 180])
+agent( pose [46 -12 0.0 180])
+agent( pose [46 -14 0.0 180])
+agent( pose [46 -16 0.0 180])
+agent( pose [46 -18 0.0 180])
+agent( pose [46 -20 0.0 180])
+agent( pose [46 -22 0.0 180])
+
+agent( pose [-38 24 0.0 0.0])
+agent( pose [-38 22 0.0 0.0])
+agent( pose [-38 20 0.0 0.0])
+agent( pose [-38 18 0.0 0.0])
+agent( pose [-38 16 0.0 0.0])
+agent( pose [-38 14 0.0 0.0])
+agent( pose [-38 12 0.0 0.0])
+agent( pose [-38 10 0.0 0.0])
+agent( pose [-38 8 0.0 0.0])
+agent( pose [-38 6 0.0 0.0])
+agent( pose [-38 4 0.0 0.0])
+agent( pose [-38 2 0.0 0.0])
+agent( pose [-38 0 0.0 0.0])
+
+agent( pose [42 0 0.0 180])
+agent( pose [42 -2 0.0 180])
+agent( pose [42 -4 0.0 180])
+agent( pose [42 -6 0.0 180])
+agent( pose [42 -8 0.0 180])
