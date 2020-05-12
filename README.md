@@ -14,9 +14,11 @@
 - model/net.py: Python file with the CNN Architecture
 - model/ppo.py : Python file updatig policy and value loss
 - videos: Folder containing some videos displaying training/testing
-- ppo1/ppo2.py : Python file where the on-policy (PPO) training process of the robots starts.
-- scene1_world.py / warehouse_world.py : Python file which takes care of the RL setup described in the report. Some of these tasks include fetching observations, publishing command velocities, reward designing etc.
-- warehouse_test/scene1_test.py : Python file which uses the trained policy to test on the given environment.
+- graphs: Folder contains graphs generated during training
+- log: Folder containing sample of log files generated during training which are used to plot graphs
+- ppo_scene/ppo_warehouse.py : Python file where the on-policy (PPO) training process of the robots starts.
+- scene_world.py / warehouse_world.py : Python file which takes care of the RL setup described in the report. Some of these tasks include fetching observations, publishing command velocities, reward designing etc.
+- warehouse_test/scene_test.py : Python file which uses the trained policy to test on the given environment.
 
 ## Train
 `stage_ros-add_pose_and_crash` package is used instead of the default package provided by ROS.
@@ -47,6 +49,6 @@ rosrun stage_ros_add_pose_and_crash stageros worlds/warehouse.world
 mpiexec -np 40 python warehouse_test.py
 ```
 ```
-rosrun stage_ros_add_pose_and_crash stageros worlds/scene1_stage2.world
+rosrun stage_ros_add_pose_and_crash stageros worlds/scene1.world
 mpiexec -np 44 python scene_test.py
 ```
