@@ -28,21 +28,19 @@ cd catkin_ws
 catkin_make
 source devel/setup.bash
 ```
-### To train on small environment, run the following command:
-To train on obstacleless space
-```
-rosrun stage_ros_add_pose_and_crash stageros worlds/scene1_stage1.world
-mpiexec -np 44 python ppo1.py
-```
-```
-rosrun stage_ros_add_pose_and_crash stageros worlds/scene1_stage2.world
-mpiexec -np 44 python ppo1.py
-```
-### To train on large environment, run the following command:
+### To train
+Large environemnt
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/warehouse.world
-mpiexec -np 44 python ppo2.py
+mpiexec -np 44 python ppo_warehouse.py
 ```
+Small Environment
+```
+rosrun stage_ros_add_pose_and_crash stageros worlds/scene1.world
+mpiexec -np 44 python ppo_scene.py
+```
+### To train on large environment, run the following command:
+
 ## Test
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/warehouse.world
@@ -50,5 +48,5 @@ mpiexec -np 45 python warehouse_test.py
 ```
 ```
 rosrun stage_ros_add_pose_and_crash stageros worlds/scene1_stage2.world
-mpiexec -np 44 python scene1_test.py
+mpiexec -np 44 python scene_test.py
 ```
