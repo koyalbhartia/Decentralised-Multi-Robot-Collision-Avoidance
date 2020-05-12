@@ -13,7 +13,7 @@ from torch.autograd import Variable
 from collections import deque
 
 from model.net import MLPPolicy, CNNPolicy
-from stage_world2 import StageWorld
+from warehouse_world import StageWorld
 from model.ppo import ppo_update_stage2, generate_train_data
 from model.ppo import generate_action, transform_buffer
 from model.utils import get_group_terminal, get_filter_index
